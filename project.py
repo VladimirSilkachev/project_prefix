@@ -6,19 +6,15 @@ prefix = ['при', 'о', 'об', 'рас', 'обо', 'из', 'ис', 'раз', 
           'пред', 'со', 'предо', 'про', 'разо', 'су', 'черес', 'через', 'чрез']
 
 word = str(input())
-prefix5 = word[:5]                          # Вычленяет первые n букв слова.
-prefix4 = word[:4]
-prefix3 = word[:3]
-prefix2 = word[:2]
-prefix1 = word[:1]
 
-if prefix.count(prefix5) != 0:              # Сравнивает n первых букв с существующими приставками.
-    print('Приставка:', prefix5)
-elif prefix.count(prefix4) != 0:
-    print('Приставка:', prefix4)
-elif prefix.count(prefix3) != 0:
-    print('Приставка:', prefix3)
-elif prefix.count(prefix2) != 0:
-    print('Приставка:', prefix2)
-elif prefix.count(prefix1) != 0:
-    print('Приставка:', prefix1)
+k = 0
+
+for i in [1,2,3,4,5]:
+    if prefix.count(word[:i]) != 0:
+        print(word[i:])
+        answer = input('Слово имеет смысл? ').lower()
+        if answer == 'да':
+            print('Вероятно, приставка: ',word[:i])
+            k += 1
+if k == 0:
+    print('Вероятно, приставки в слове нет.')
